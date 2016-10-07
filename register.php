@@ -13,25 +13,28 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 ?>
-<title>Register FORM</title>
 <html>
 	<head>
-		<title>CompuTech</title>
+		<title>Registered</title>
 		<link rel="stylesheet" type="text/css" href="style1.css"/>
 	</head>
 	<body>
 		<div id="container">
 			<div id="header">
 				<h1>CompuTech</h1>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li style="float:right"><a href="login.html">Login</a></li>
+					<li style="float:right"><a class="active" href="register.html">Register</a></li>
+				</ul>
 			</div>
 			<div id="content">
 				<div id="nav">
 					<h2>Categories</h2>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li><a href="register.html">Register</a></li>
+						<li></li>
 					</ul>
 				</div>
 				<div id="main">
