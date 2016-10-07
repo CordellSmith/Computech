@@ -4,10 +4,37 @@ body
 	font-family: Helvetica, Arial;
 }
 
-a
+#header li a
 {
+	display: block;
 	text-decoration: none;
-	color: blue;
+	color: white;
+	text-align: center;
+	padding: 6px 18px;
+}
+
+.active
+{
+	background-color: #6699ff;
+}
+
+#header ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+#header li
+{
+	float: left;
+}
+
+#header li a:hover
+{
+    background-color: #111;
 }
 
 h1, h2, h3
