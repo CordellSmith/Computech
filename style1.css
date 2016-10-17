@@ -62,13 +62,13 @@ h1, h2, h3
 	padding: 10px;
 }
 
-#nav
+#categorylisting
 {
 	width: 180px;
 	float: left;
 }
 
-#nav ul
+#categorylisting ul
 {
 	list-style-type: none;
 	padding: 0;
@@ -87,4 +87,11 @@ h1, h2, h3
 	background-color: #999999;
 	color: white;
 	text-align: right;
+}
+
+.catlistitem {
+	padding-bottom: 3px;
+	padding-top: 3px;
+	padding-left: 8px;
+	z-index: 5000;
 }
