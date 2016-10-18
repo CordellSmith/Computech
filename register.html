@@ -2,8 +2,7 @@
 <html>
 	<head>
 		<title>Register</title>
-		<link rel="stylesheet" type="text/css" href="register_style.css"/>
-		<link rel="stylesheet" type="text/css" href="style1.css"/>
+		<link rel="stylesheet" type="text/css" href="register_login_style.css"/>
 	</head>
 	<body>
 		<div id="container">
@@ -18,24 +17,18 @@
 				</ul>
 			</div>
 			<div id="content">
-				<div id="categorylisting">
+				<div id="nav">
 					<h2>Categories</h2>
-					<ul class="catlist">
-						<li class="catlistitem">
-							Accessories
-						</li>
-						<li class="catlistitem">
-							Hard Drives
-						</li>
-						<li class="catlistitem">
-							CPU
-						</li>
-						<li class="catlistitem">
-							Graphics
-						</li>
-						<li class="catlistitem">
-							Motherboards/Mainboards
-						</li>
+					<ul>
+						<li><a href="#main"><img src="logos/case.png" alt="Towers"></a></li>
+						<li><a href="#main"><img src="logos/mboard.png" alt="Motherboard"></a></li>
+						<li><a href="#main"><img src="logos/cpu.png" alt="CPU"></a></li>
+						<li><a href="#main"><img src="logos/ram.png" alt="RAM"></a></li>
+						<li><a href="#main"><img src="logos/gpu.png" alt="Graphics"></a></li>
+						<li><a href="#main"><img src="logos/hdd.png" alt="HDD"></a></li>
+						<li><a href="#main"><img src="logos/monitor.png" alt="Monitors"></a></li>
+						<li><a href="#main"><img src="logos/software.png" alt="Software"></a></li>
+						<li><a href="#main"><img src="logos/accessories.png" alt="Accessories"></a></li>
 					</ul>
 				</div>
 				<div id="main">
@@ -43,7 +36,7 @@
 				<p>
 					<form method="POST" action="register.php">
 						<fieldset>
-							<legend>Personal information:</legend>
+						<legend>Personal information:</legend>
 							<label for="username">Username:</label><input type ="text" id="username" name="username" placeholder="j.doe" maxlength="12">
 							<br>
 							<label for="password">Password:</label><input type ="password" id="password" name="password" placeholder="Password23" maxlength="20">
