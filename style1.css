@@ -127,3 +127,52 @@ h1, h2, h3
 {
 	padding-bottom: 5px;
 }
+
+.region_block
+{
+	padding-top: 20px;
+}
+
+.small_region
+{
+	padding-top: 20px;
+	float: left;
+	width: 200px;
+}
+
+.cu_header
+{
+	width: 30%;	
+	padding: 0 5px 0 5px;
+	display: inline-block;
+}
+
+.small_cu_header
+{
+	padding: 0 5px 0 5px;
+	display: inline-block;
+}
+
+.map_region
+{
+	padding: 15px 0 0 15px;
+	float: left;
+}
+
+.cu_content
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #000;
+	font-weight: normal;
+	text-align: center;
+}
+
+.fheader
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #6699ff;
+	font-weight: bold;
+	padding-left: 0px;
+}
