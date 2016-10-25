@@ -34,15 +34,15 @@
 				<div id="nav">
 					<h2>Categories</h2>
 					<ul>
-						<li><a href="#main"><img src="logos/case.png" alt="Towers"></a></li>
-						<li><a href="#main"><img src="logos/mboard.png" alt="Motherboard"></a></li>
-						<li><a href="#main"><img src="logos/cpu.png" alt="CPU"></a></li>
-						<li><a href="#main"><img src="logos/ram.png" alt="RAM"></a></li>
-						<li><a href="#main"><img src="logos/gpu.png" alt="Graphics"></a></li>
-						<li><a href="#main"><img src="logos/hdd.png" alt="HDD"></a></li>
-						<li><a href="#main"><img src="logos/monitor.png" alt="Monitors"></a></li>
-						<li><a href="#main"><img src="logos/software.png" alt="Software"></a></li>
-						<li><a href="#main"><img src="logos/accessories.png" alt="Accessories"></a></li>
+						<li><a href="categories/case.php"><span class="cat_li">Cases</span><img src="logos/case.png" alt="Towers"></a></li>
+						<li><a href="categories/motherboard.php"><span class="cat_li">Motherboard</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
+						<li><a href="categories/cpu.php"><span class="cat_li">CPU</span><img src="logos/cpu.png" alt="CPU"></a></li>
+						<li><a href="categories/ram.php"><span class="cat_li">RAM</span><img src="logos/ram.png" alt="RAM"></a></li>
+						<li><a href="categories/gpu.php"><span class="cat_li">GPU</span><img src="logos/gpu.png" alt="Graphics"></a></li>
+						<li><a href="categories/hdd.php"><span class="cat_li">STORAGE</span><img src="logos/hdd.png" alt="HDD"></a></li>
+						<li><a href="categories/monitor.php"><span class="cat_li">DISPLAY</span><img src="logos/monitor.png" alt="Monitors"></a></li>
+						<li><a href="categories/software.php"><span class="cat_li">SOFTWARE</span><img src="logos/software.png" alt="Software"></a></li>
+						<li><a href="categories/accessories.php"><span class="cat_li">ACCESSORIES</span><img src="logos/accessories.png" alt="Accessories"></a></li>
 					</ul>
 				</div>
 				<div id="main">
@@ -55,8 +55,6 @@
 						mysql_query("")
 						
 						or die(mysql_error());
-						
-						mysql_close($connection);
 					?>
 					
 					<p></p>
