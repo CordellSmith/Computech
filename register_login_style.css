@@ -90,14 +90,6 @@ h1, h2, h3
 	padding: 0;
 }
 
-#nav img
-{
-	max-width: 170px;
-	display: block;
-	opacity: 1.0;
-	border: 1px solid black;
-}
-
 #nav li
 {
 	width: 150px;
