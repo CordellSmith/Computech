@@ -1,0 +1,117 @@
+body
+{
+	background-color: #EEEEEE;
+	font-family: Helvetica, Arial;
+	background-color: black;
+	background-image: url("background/2.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 20% 25%;
+	background-attachment: fixed;
+}
+
+#header li a
+{
+	display: block;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	padding: 6px 18px;
+}
+
+.active
+{
+	background-color: #6699ff;
+}
+
+#header ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+#header li
+{
+	float: left;
+}
+
+#header li a:hover
+{
+	background-color: #111;
+}
+
+h1, h2, h3
+{
+	margin: 0;
+}
+
+#container
+{
+	background-color: white;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.94;
+}
+
+#header
+{
+	background-color: #6699ff;
+	color: white;
+	text-align: center;
+}
+
+#content
+{
+	padding: 10px;
+	display: block;
+}
+
+#nav
+{
+	width: 180px;
+	float: left;
+	border: 2px black;
+}
+
+#nav ul
+{
+	list-style-type: none;
+	padding: 0;
+}
+
+#nav img
+{
+	max-width: 170px;
+	display: block;
+	opacity: 1.0;
+	border: 1px solid black;
+}
+
+#nav li
+{
+	width: 150px;
+}
+
+#nav img:hover
+{
+	opacity: 0.5;
+}
+
+#main
+{
+	width: 650px;
+	float: right;
+}
+
+#footer
+{
+	clear: both;
+	padding: 7px;
+	background-color: #999999;
+	color: white;
+	text-align: right;
+}
