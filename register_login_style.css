@@ -2,6 +2,7 @@ body
 {
 	background-color: #EEEEEE;
 	font-family: Helvetica, Arial;
+	background-color: black;
 	background-image: url("background/2.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -90,6 +91,17 @@ h1, h2, h3
 	padding: 0;
 }
 
+#nav img
+{
+	max-width: 170px;
+	display: block;
+	opacity: 1.0;
+	margin-bottom: 3px;
+	border-width: 3px;
+	border-color: #becee8;
+	border-style: outset;
+}
+
 #nav li
 {
 	width: 150px;
@@ -102,7 +114,7 @@ h1, h2, h3
 
 #main
 {
-	width: 650px;
+	width: 680px;
 	float: right;
 }
 
@@ -113,4 +125,96 @@ h1, h2, h3
 	background-color: #999999;
 	color: white;
 	text-align: right;
+}
+
+#JSmithers
+{
+	margin-left: 50px;
+	width: 222px;
+	height: 329.4px;
+}
+
+#aboutLI
+{
+	padding-bottom: 5px;
+}
+
+.region_block
+{
+	padding-top: 20px;
+}
+
+.small_region
+{
+	padding-top: 20px;
+	float: left;
+	width: 200px;
+}
+
+.cu_header
+{
+	width: 30%;	
+	padding: 0 5px 0 5px;
+	display: inline-block;
+}
+
+.small_cu_header
+{
+	padding: 0 5px 0 5px;
+	display: inline-block;
+}
+
+.map_region
+{
+	padding: 15px 0 0 15px;
+	float: left;
+}
+
+.cu_content
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #000;
+	font-weight: normal;
+	text-align: center;
+}
+
+.fheader
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #6699ff;
+	font-weight: bold;
+	padding-left: 0px;
+}
+
+.sliderContainer
+{
+	position: relative;
+	padding-top: 20px;
+}
+
+.mySlides
+{
+	width: 100%;
+	height: 180px;
+}
+
+.cat_li
+{
+	position: absolute;
+	margin-left: 3px;
+	margin-top: 3px;
+	color: white;
+	font: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	background: rgba(2, 2, 2, 0.8);
+	width: 170px;
+}
+
+#product_specials
+{
+	margin-top: 10px;
+	border-style: solid;
+	border-width: 3px;
 }
