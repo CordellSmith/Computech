@@ -5,12 +5,12 @@
 	$password = "X32237834";
 	$dbname = "X32237834";
 	
-	$connection = mysql_connect("$servername", "$username", "$password");
+	$conn = mysql_connect("$servername", "$username", "$password");
 	mysql_select_db("$dbname");
 	
-	if ($db -> connect_error)
+	if (!$conn)
 	{
-		die("Connection failed: " . $conn->connect_error);
+		die("Connection failed: " . mysql_error());
 	}
 ?>
 <html>

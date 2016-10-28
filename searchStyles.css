@@ -1,0 +1,31 @@
+#searchItem
+{
+	margin-bottom: 10px;
+}
+
+.results_div
+{
+	width: 680px;
+	float: right;
+}
+
+.product_div
+{
+	border: 1px solid;
+	width: 400px;
+}
+
+.product_div img
+{
+	float: right;
+}
+
+.searchResults
+{
+	margin: 4px 0 4px 0;
+}
+
+.img_div
+{
+	float: relative;
+}

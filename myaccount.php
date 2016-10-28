@@ -26,6 +26,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="contact.html">Contact</a></li>
+					<li><a href="search.php">Search</a></li>
 					<li style="float:right"><a href="login.html">Login</a></li>
 					<li style="float:right"><a class="active" href="register.html">Register</a></li>
 				</ul>
