@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+error_reporting(E_ERROR | E_PARSE);
 $servername = "localhost";
 $username = "X32237834";
 $password = "X32237834";
@@ -20,6 +21,7 @@ if (!$conn)
 	<title>Search Page</title>
 	<link rel="stylesheet" type="text/css" href="style1.css"/>
 	<link rel="stylesheet" type="text/css" href="searchStyles.css"/>
+	<link rel="javascript" type="text/javascript" src="searchScript.js"/>
 </head>
 <body>
 	<div id="container">
@@ -50,24 +52,38 @@ if (!$conn)
 					<li><a href="categories/accessories.php"><span class="cat_li">ACCESSORIES</span><img src="logos/accessories.png" alt="Accessories"></a></li>
 				</ul>
 			</div>
-			<?php
-			$input = $_POST['searchBox'];
-			if (empty($input))
-			{
-				?>
-				<div id="main">
-					<h3>Search Products</h3>
-					<div class="search_div">
-						<form class="search_form" method="POST" action="search.php">
-							<p>
-								<label> Search: <input type="text" id="searchBox" name="searchBox" /><br /></label>
-								<button type="submit" id="submit" name="submit"> Submit </button>
-								<button type="reset" id="reset" name="reset"> Reset </button>
-							</p>
-						</form>
-					</div>
-					<?php
-				} else
+			<div id="main">
+				<h3>Keyword Search</h3>
+				<div class="search_div">
+					<form class="search_form" method="POST" action="search.php">
+						<p>
+							<label>Keyword: <input type="text" id="searchBox" name="searchBox" /><br /></label>
+						</p>
+						<h3>OR</h3>
+						<h3 style="margin-top: 10px;">Category Search</h3>
+						<div class="category_search">
+							<div class="dropdown">
+								<select name="dd_category">
+									<option value="nothing">-----</option>
+									<option value="Cases">Cases</option>
+									<option value="Motherboards">Motherboards</option>
+									<option value="CPU">CPU</option>
+									<option value="RAM">Memory(RAM)</option>
+									<option value="GPU">GPU</option>
+									<option value="Storage">Storage</option>
+									<option value="Display">Display</option>
+									<option value="Display">Software</option>
+									<option value="Accessories">Accessories</option>
+								</select>
+							</div>
+						</div>
+						<button type="submit" id="submit" name="submit">Submit </button>
+						<button type="reset" id="reset" name="reset">Reset </button>
+					</form>
+				</div>
+				<?php
+				$input = $_POST['searchBox'];
+				if (isset($input))
 				{
 					trim($input);
 
@@ -84,34 +100,34 @@ if (!$conn)
 					{
 						if (mysql_fetch_array($result))
 						{
-							print "<div class=\"results_div\">";
-							while ($line = mysql_fetch_array($result))
-							{
-								print "<div class=\"product_div\">";
-								print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-								"Type: " . $line['productType'] . "<br />" .
-								"Description: " . $line['productDescription'] . "<br />" .
-								"Price: " . $line['Price'] . "</p>";
-								$img_link = $line['Image'];	
-								print "</div>";
-								print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
-							}
-							print "</div>";
-						} else 
+						print "<div class=\"results_div\">";
+						while ($line = mysql_fetch_array($result))
 						{
-							print "<p>There Are No Results that match your Search Item</p>";
+							print "<div class=\"product_div\">";
+							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+							"Type: " . $line['productType'] . "<br />" .
+							"Description: " . $line['productDescription'] . "<br />" .
+							"Price: " . $line['Price'] . "</p>";
+							$img_link = $line['Image'];	
+							print "</div>";
+							print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
 						}
-
+						print "</div>";
+					} else 
+					{
+						print "<p>There Are No Results that match your Search Item</p>";
 					}
-					mysql_free_result($result);
-					mysql_close($conn);
+
 				}
-				?>
-			</div>
-		</div>
-		<div id="footer">
-			Copyright &copy; 2016. computech inc.
+				mysql_free_result($result);
+				mysql_close($conn);
+			}
+			?>
 		</div>
 	</div>
+	<div id="footer">
+		Copyright &copy; 2016. computech inc.
+	</div>
+</div>
 </body>
 </html>

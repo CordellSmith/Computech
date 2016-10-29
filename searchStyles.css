@@ -7,25 +7,42 @@
 {
 	width: 680px;
 	float: right;
+	margin-top: 10px;
 }
 
 .product_div
 {
 	border: 1px solid;
 	width: 400px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-left: 4px;
 }
 
-.product_div img
+.search_form p
 {
-	float: right;
+	margin: 10px 0 0 0;
+}
+
+#searchBox
+{
+	margin-bottom: 10px;
 }
 
 .searchResults
 {
-	margin: 4px 0 4px 0;
+	margin: 4px 0px 4px 0;
 }
 
 .img_div
 {
+	position: block;
 	float: relative;
+}
+
+.dropdown
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
