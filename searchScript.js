@@ -1,12 +1,8 @@
 var category, x, y;
 
-function verify()
+function setCase()
 {
-	check = document.getElementById("dd_category").selectedIndex;
-	if (check == 0)
-		return false;
-	else
-		return true;
+	
 }
 
 function getCategory()

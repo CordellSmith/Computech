@@ -35,8 +35,8 @@
 				<div id="nav">
 					<h2>Categories</h2>
 					<ul>
-						<li><a href="categories/case.php"><span class="cat_li">Cases</span><img src="logos/case.png" alt="Towers"></a></li>
-						<li><a href="categories/motherboard.php"><span class="cat_li">Motherboard</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
+						<li><a href="categories/case.php"><span class="cat_li">CASES</span><img src="logos/case.png" alt="Towers"></a></li>
+						<li><a href="categories/motherboard.php"><span class="cat_li">MOTHERBOARDS</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
 						<li><a href="categories/cpu.php"><span class="cat_li">CPU</span><img src="logos/cpu.png" alt="CPU"></a></li>
 						<li><a href="categories/ram.php"><span class="cat_li">RAM</span><img src="logos/ram.png" alt="RAM"></a></li>
 						<li><a href="categories/gpu.php"><span class="cat_li">GPU</span><img src="logos/gpu.png" alt="Graphics"></a></li>

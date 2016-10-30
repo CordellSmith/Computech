@@ -31,8 +31,8 @@ if (!$conn)
 				<li><a href="index.html">Home</a></li>
 				<li><a href="about.html">About</a></li>
 				<li><a href="contact.html">Contact</a></li>
-				<li><a class="active" href="all_products.php">Products</a></li>
-				<li><a href="search.php">Search</a></li>
+				<li><a href="all_products.php">Products</a></li>
+				<li><a class="active" href="search.php">Search</a></li>
 				<li style="float:right"><a href="login.html">Login</a></li>
 				<li style="float:right"><a href="register.html">Register</a></li>
 			</ul>
@@ -41,8 +41,8 @@ if (!$conn)
 			<div id="nav">
 				<h2>Categories</h2>
 				<ul>
-					<li><a href="categories/case.php"><span class="cat_li">Cases</span><img src="logos/case.png" alt="Towers"></a></li>
-					<li><a href="categories/motherboard.php"><span class="cat_li">Motherboard</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
+					<li><a href="categories/case.php"><span class="cat_li">CASES</span><img src="logos/case.png" alt="Towers"></a></li>
+					<li><a href="categories/motherboard.php"><span class="cat_li">MOTHERBOARDS</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
 					<li><a href="categories/cpu.php"><span class="cat_li">CPU</span><img src="logos/cpu.png" alt="CPU"></a></li>
 					<li><a href="categories/ram.php"><span class="cat_li">RAM</span><img src="logos/ram.png" alt="RAM"></a></li>
 					<li><a href="categories/gpu.php"><span class="cat_li">GPU</span><img src="logos/gpu.png" alt="Graphics"></a></li>
@@ -55,13 +55,19 @@ if (!$conn)
 			<div id="main">
 				<h3>Keyword Search</h3>
 				<div class="search_div">
-					<form class="search_form" method="POST" action="search.php">
-						<p>
-							<label>Keyword: <input type="text" id="searchBox" name="searchBox" /><br /></label>
-						</p>
-						<h3>OR</h3>
-						<h3 style="margin-top: 10px;">Category Search</h3>
-						<div class="category_search">
+					<div class="keyword_search">
+						<form class="keyword_form" method="POST" action="search.php" name="keyword_form">
+							<p style="margin-bottom: 0px;"">
+								<label>Keyword: <input type="text" id="searchBox" name="searchBox" /><br /></label>
+							</p>
+							<button type="submit" id="submit" name="submit">Submit</button>
+							<button type="reset" id="reset" name="reset">Reset </button>
+						</form>
+					</div>
+					<h3 style="margin-top: 10px;">OR</h3>
+					<h3 style="margin-top: 10px;">Category Search</h3>
+					<div class="category_search">
+						<form class="dd_form" method="POST" action="search.php" name="dd_form">
 							<div class="dropdown">
 								<select name="dd_category">
 									<option value="nothing">-----</option>
@@ -71,20 +77,20 @@ if (!$conn)
 									<option value="RAM">Memory(RAM)</option>
 									<option value="GPU">GPU</option>
 									<option value="Storage">Storage</option>
-									<option value="Display">Display</option>
-									<option value="Display">Software</option>
+									<option value="Monitors">Display</option>
+									<option value="Software">Software</option>
 									<option value="Accessories">Accessories</option>
 								</select>
+								<button type="submit" id="cat_find" name="cat_find">GO</button>
 							</div>
-						</div>
-						<button type="submit" id="submit" name="submit">Submit </button>
-						<button type="reset" id="reset" name="reset">Reset </button>
-					</form>
+						</form>
+					</div>
 				</div>
 				<?php
-				$input = $_POST['searchBox'];
-				if (isset($input))
+
+				if (isset($_POST['searchBox']))
 				{
+					$input = $_POST['searchBox'];
 					trim($input);
 
 					$query = "SELECT productName, productType, productDescription, Price, Quantity, Image FROM products WHERE (productType LIKE '$input%') OR  (productDescription LIKE '$input%');";
@@ -100,34 +106,71 @@ if (!$conn)
 					{
 						if (mysql_fetch_array($result))
 						{
-						print "<div class=\"results_div\">";
-						while ($line = mysql_fetch_array($result))
-						{
-							print "<div class=\"product_div\">";
-							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-							"Type: " . $line['productType'] . "<br />" .
-							"Description: " . $line['productDescription'] . "<br />" .
-							"Price: " . $line['Price'] . "</p>";
-							$img_link = $line['Image'];	
+							print "<div class=\"results_div\">";
+							while ($line = mysql_fetch_array($result))
+							{
+								print "<div class=\"product_div\">";
+								print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+								"Type: " . $line['productType'] . "<br />" .
+								"Description: " . $line['productDescription'] . "<br />" .
+								"Price: " . $line['Price'] . "</p>";
+								$img_link = $line['Image'];	
+								print "</div>";
+								print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
+							}
 							print "</div>";
-							print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
+						} else 
+						{
+							print "<p>There Are No Results that match your Search Item</p>";
 						}
-						print "</div>";
-					} else 
-					{
-						print "<p>There Are No Results that match your Search Item</p>";
-					}
 
+					}
 				}
+
+				if (isset($_POST['dd_category']))
+				{
+
+					$cat = $_POST['dd_category'];
+					//var_dump($cat);
+
+					$query = "SELECT productName, productType, productDescription, Price, Quantity, Image FROM products WHERE (productType LIKE '$cat%');";
+
+					$result = mysql_query($query);
+					if (!$result)
+					{
+						print "Error - the query could not be executed";
+						$error = mysql_error();
+						print "<p>" . $error . "</p>";
+						exit;
+					}else 
+					{
+						if (mysql_fetch_array($result))
+						{
+							print "<div class=\"results_div\">";
+							while ($line = mysql_fetch_array($result))
+							{
+								print "<div class=\"product_div\">";
+								print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+								"Type: " . $line['productType'] . "<br />" .
+								"Description: " . $line['productDescription'] . "<br />" .
+								"Price: " . $line['Price'] . "</p>";
+								$img_link = $line['Image'];	
+								print "</div>";
+								print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
+							}
+							print "</div>";
+						}
+					}
+				}
+
 				mysql_free_result($result);
 				mysql_close($conn);
-			}
-			?>
+				?>
+			</div>
+		</div>
+		<div id="footer">
+			Copyright &copy; 2016. computech inc.
 		</div>
 	</div>
-	<div id="footer">
-		Copyright &copy; 2016. computech inc.
-	</div>
-</div>
 </body>
 </html>

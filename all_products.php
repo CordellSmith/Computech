@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+error_reporting(E_ERROR | E_PARSE);
 $servername = "localhost";
 $username = "X32237834";
 $password = "X32237834";
@@ -17,7 +18,7 @@ if (!$conn)
 ?>
 <html>
 <head>
-	<title>All Products</title>
+	<title>Products</title>
 	<link rel="stylesheet" type="text/css" href="products.css"/>
 	<link rel="stylesheet" type="text/css" href="searchStyles.css"/>
 </head>
@@ -39,8 +40,8 @@ if (!$conn)
 			<div id="nav">
 				<h2>Categories</h2>
 				<ul>
-					<li><a href="categories/case.php"><span class="cat_li">Cases</span><img src="logos/case.png" alt="Towers"></a></li>
-					<li><a href="categories/motherboard.php"><span class="cat_li">Motherboard</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
+					<li><a href="categories/case.php"><span class="cat_li">CASES</span><img src="logos/case.png" alt="Towers"></a></li>
+					<li><a href="categories/motherboard.php"><span class="cat_li">MOTHERBOARDS</span><img src="logos/mboard.png" alt="Motherboard"></a></li>
 					<li><a href="categories/cpu.php"><span class="cat_li">CPU</span><img src="logos/cpu.png" alt="CPU"></a></li>
 					<li><a href="categories/ram.php"><span class="cat_li">RAM</span><img src="logos/ram.png" alt="RAM"></a></li>
 					<li><a href="categories/gpu.php"><span class="cat_li">GPU</span><img src="logos/gpu.png" alt="Graphics"></a></li>
@@ -53,40 +54,44 @@ if (!$conn)
 			<div id="main">
 				<h3>All Products<br></h3>
 				<?php
-				$query = "SELECT productName, productType, productDescription, Price, Image FROM products WHERE productType = 'RAM';";
-
+				$query = "SELECT productName, productType, productDescription, Price, Quantity, Image FROM products;";
 
 				$result = mysql_query($query);
-				if (!$result) {
+				if (!$result)
+				{
 					print "Error - the query could not be executed";
 					$error = mysql_error();
 					print "<p>" . $error . "</p>";
 					exit;
-				}else
+				}else 
 				{
-					print "<div class=\"results_div\">";
-					while ($line = mysql_fetch_array($result))
+					if (mysql_fetch_array($result))
 					{
-						print "<div class=\"product_div\">";
-						print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-						"Type: " . $line['productType'] . "<br />" .
-						"Description: " . $line['productDescription'] . "<br />" .
-						"Price: " . $line['Price'] . "</p>";
-						$img_link = $line['Image'];	
+						print "<div class=\"results_div\">";
+						while ($line = mysql_fetch_array($result))
+						{
+							print "<div class=\"product_div\">";
+							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+							"Type: " . $line['productType'] . "<br />" .
+							"Description: " . $line['productDescription'] . "<br />" .
+							"Price: " . $line['Price'] . "</p>";
+							$img_link = $line['Image'];	
+							print "</div>";
+							print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
+						}
 						print "</div>";
-						print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
 					}
-					print "</div>";
 				}
 
 				mysql_free_result($result);
 				mysql_close($conn);
 				?>
+				<php>
+				</div>
+			</div>
+			<div id="footer">
+				Copyright &copy; 2016. computech inc.
 			</div>
 		</div>
-		<div id="footer">
-			Copyright &copy; 2016. computech inc.
-		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>
