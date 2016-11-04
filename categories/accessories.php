@@ -40,7 +40,7 @@ if (!$conn)
 			<div id="nav">
 				<h2>Categories</h2>
 				<ul>
-				<li><a href="case.php"><span class="cat_li">CASES</span><img src="../logos/case.png" alt="Towers"></a></li>
+					<li><a href="case.php"><span class="cat_li">CASES</span><img src="../logos/case.png" alt="Towers"></a></li>
 					<li><a href="motherboard.php"><span class="cat_li">MOTHERBOARDS</span><img src="../logos/mboard.png" alt="Motherboard"></a></li>
 					<li><a href="cpu.php"><span class="cat_li">CPU</span><img src="../logos/cpu.png" alt="CPU"></a></li>
 					<li><a href="ram.php"><span class="cat_li">RAM</span><img src="../logos/ram.png" alt="RAM"></a></li>
@@ -65,22 +65,19 @@ if (!$conn)
 					exit;
 				}else 
 				{
-					if (mysql_fetch_array($result))
+					print "<div class=\"results_div\">";
+					while ($line = mysql_fetch_array($result))
 					{
-						print "<div class=\"results_div\">";
-						while ($line = mysql_fetch_array($result))
-						{
-							print "<div class=\"product_div\">";
-							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-							"Type: " . $line['productType'] . "<br />" .
-							"Description: " . $line['productDescription'] . "<br />" .
-							"Price: " . $line['Price'] . "</p>";
-							$img_link = $line['Image'];	
-							print "</div>";
-							print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
-						}
+						print "<div class=\"product_div\">";
+						print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+						"Type: " . $line['productType'] . "<br />" .
+						"Description: " . $line['productDescription'] . "<br />" .
+						"Price: " . $line['Price'] . "</p>";
+						$img_link = $line['Image'];	
+						print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 100%; height: 100%;\"></div>";	
 						print "</div>";
 					}
+					print "</div>";
 				}
 
 				mysql_free_result($result);

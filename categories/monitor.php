@@ -65,22 +65,19 @@ if (!$conn)
 					exit;
 				}else 
 				{
-					if (mysql_fetch_array($result))
+					print "<div class=\"results_div\">";
+					while ($line = mysql_fetch_array($result))
 					{
-						print "<div class=\"results_div\">";
-						while ($line = mysql_fetch_array($result))
-						{
-							print "<div class=\"product_div\">";
-							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-							"Type: " . $line['productType'] . "<br />" .
-							"Description: " . $line['productDescription'] . "<br />" .
-							"Price: " . $line['Price'] . "</p>";
-							$img_link = $line['Image'];	
-							print "</div>";
-							print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
-						}
+						print "<div class=\"product_div\">";
+						print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+						"Type: " . $line['productType'] . "<br />" .
+						"Description: " . $line['productDescription'] . "<br />" .
+						"Price: " . $line['Price'] . "</p>";
+						$img_link = $line['Image'];	
+						print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 100%; height: 100%;\"></div>";	
 						print "</div>";
 					}
+					print "</div>";
 				}
 
 				mysql_free_result($result);
