@@ -48,6 +48,11 @@ h1, h2, h3
 	margin: 0;
 }
 
+h2
+{
+	text-align: center;
+}
+
 #container
 {
 	background-color: white;
@@ -97,11 +102,6 @@ h1, h2, h3
 #nav li
 {
 	width: 150px;
-}
-
-#nav img:hover
-{
-	opacity: 0.5;
 }
 
 #main
@@ -192,16 +192,30 @@ h1, h2, h3
 	height: 180px;
 }
 
-.cat_li
+span.cat_li
 {
 	position: absolute;
-	margin-left: 3px;
-	margin-top: 3px;
+	text-align: center;
+	margin-left: 2.7px;
+	margin-top: 2.7px;
 	color: white;
 	font: Verdana, Geneva, sans-serif;
 	font-size: 20px;
 	background: rgba(2, 2, 2, 0.8);
 	width: 170px;
+	height: 82px;
+	cursor: pointer;
+	display: table;
+	opacity: 0;
+	-webkit-transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	-o-transition: opacity 400ms;
+	transition: opacity 400ms;
+}
+
+ul.img-list li:hover span.cat_li
+{
+	opacity: 1;
 }
 
 #product_specials
