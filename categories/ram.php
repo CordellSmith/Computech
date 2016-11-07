@@ -77,7 +77,7 @@
 				</div>
 				<div id="main">
 					<h3>RAM<br></h3>
-					<?php
+										<?php
 						$query = "SELECT productID, productName, productType, productDescription, Price, Quantity, Image FROM products WHERE (productType LIKE 'ram');";
 						$result = mysqli_query($conn, $query);
 						
@@ -90,43 +90,40 @@
 						}
 						else
 						{
-							if (mysqli_fetch_array($result))
+							print "<div class=\"results_div\">";
+							while ($line = mysqli_fetch_array($result))
 							{
-								print "<div class=\"results_div\">";
-								while ($line = mysqli_fetch_array($result))
-								{
-									print "<div class=\"product_div\">";
-									print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
-									"Type: " . $line['productType'] . "<br />" .
-									"Description: " . $line['productDescription'] . "<br />" .
-									"Price: " . $line['Price'] . "</p>";
-									$id = $line['productID'];
-									$title = $line['productName'];
-									$price = $line['Price'];
+								print "<div class=\"product_div\">";
+								print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" .
+								"Type: " . $line['productType'] . "<br />" .
+								"Description: " . $line['productDescription'] . "<br />" .
+								"Price: " . $line['Price'] . "</p>";
+								$id = $line['productID'];
+								$title = $line['productName'];
+								$price = $line['Price'];
 							
 					?>
-									<div id="buy_form">
-										<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-											<input type="hidden" name="cmd" value="_xclick">
-											<input type="hidden" name="business" value="kevin.cuz@hotmail.com">
-											<input type="hidden" name="lc" value="BM">
-											<input type="hidden" name="button_subtype" value="services">
-											<input type="hidden" name="no_note" value="0">
-											<input type="hidden" name="currency_code" value="AUD">
-											<input type="hidden" name="item_name" value="<?php echo $id . $title; ?>">
-											<input type="hidden" name="amount" value="<?php echo $price; ?>">
-											<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-											<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-											<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-										</form>
-									</div>
+								<div id="buy_form">
+									<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+										<input type="hidden" name="cmd" value="_xclick">
+										<input type="hidden" name="business" value="kevin.cuz@hotmail.com">
+										<input type="hidden" name="lc" value="BM">
+										<input type="hidden" name="button_subtype" value="services">
+										<input type="hidden" name="no_note" value="0">
+										<input type="hidden" name="currency_code" value="AUD">
+										<input type="hidden" name="item_name" value="<?php echo $id . $title; ?>">
+										<input type="hidden" name="amount" value="<?php echo $price; ?>">
+										<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+										<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+										<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+									</form>
+								</div>
 					<?php	
-									$img_link = $line['Image'];
-									print "</div>";
-									print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
-								}
+								$img_link = $line['Image'];	
 								print "</div>";
+								print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
 							}
+							print "</div>";
 						}
 						mysqli_free_result($result);
 						mysqli_close($conn);
