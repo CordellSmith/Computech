@@ -77,6 +77,19 @@ h2
 	text-align: center;
 }
 
+a.logout
+{
+	position: relative;
+	float: right;
+	text-decoration: none;
+	color: blue;
+}
+a.logout:hover
+{
+	text-decoration: none;
+	color: red;
+}
+
 #content
 {
 	padding: 10px;
