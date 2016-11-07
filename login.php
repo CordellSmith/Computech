@@ -22,7 +22,7 @@
 		$myusername = mysqli_real_escape_string($conn,$_POST['username']);
 		$mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
 
-		$sql = "SELECT firstname FROM users WHERE username='$myusername' and password='$mypassword'";
+		$sql = "SELECT username FROM users WHERE username='$myusername' and password='$mypassword'";
 		$result = mysqli_query($conn,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$active = $row['active'];
