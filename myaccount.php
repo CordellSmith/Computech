@@ -76,24 +76,52 @@
 					</ul>
 				</div>
 				<div id="main">
-					<h3>My Account<br></h3>
-					<h2><a href = "logout.php">Sign Out</a></h2>
+					<h3>My Account <a class="logout" href = "logout.php">LOGOUT</a><br></h3>
 					
 					<?php
-							$user = $_SESSION['login_user'];
-							
-							
-							$sql = "SELECT username FROM users WHERE username='$user'";
-							$result = mysqli_query($conn, $sql);
-
-							$user_details_array = array();
-
-							while($row = mysqli_fetch_array($result))
+						
+						$username = $_SESSION['login_user'];
+						
+						$query = "SELECT username, firstname, lastname, street, city, country, phonenumber, email, UserType FROM users WHERE username='$username';";
+						$result = mysqli_query($conn, $query);
+						
+						if (!$result)
+						{
+							print "Error - the query could not be executed";
+							var_dump($result);
+							exit;
+						}
+						else
+						{
+							while ($line = mysqli_fetch_array($result))
 							{
-								$user_details_array[] = "\"".$row['username']."\"";
+								echo "<p>First Name: " . $line['firstname'] . "<br />" . "Last Name: " . $line['lastname'] . "<br />" . "Username: " . $line['username'] . "<br />" . "Street: " . $line['street'] . "<br />" . "City: " . $line['city'] . "<br />" . "Country: " . $line['country'] . "<br />" . "Phone Number: " . $line['phonenumber'] . "<br />" . "Email: " . $line['email'] . "<br />" . "Type of Registration: " . $line['UserType'] . "</p>";
 							}
 							
-							$username_string = implode(",", $user_details_array);
+							$query = "SELECT UserType FROM users WHERE username='$username';";
+							$result = mysqli_query($conn, $query);
+							
+							$row = mysqli_fetch_array($result);
+							
+							if($row['UserType']=='Admin')
+							{
+								echo "Hi Admin<br>";
+								?>
+									<form>
+										<input type="button" value="Add a Product" onclick="add()">
+									</form>
+									
+									<script>
+										function add()
+										{
+											window.location.replace("add.php");
+										}
+									</script>
+								<?php
+							}
+						}
+						mysqli_free_result($result);
+						mysqli_close($conn);
 					?>
 				</div>
 			</div>
