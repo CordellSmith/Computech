@@ -30,7 +30,7 @@
 ?>
 <html>
 	<head>
-		<title>Your Session</title>
+		<title>Logged In</title>
 	</head>
 	<body>
 	</body>
