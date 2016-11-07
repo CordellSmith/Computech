@@ -79,22 +79,24 @@
 				<h3>All Products<br></h3>
 				<?php
 					$query = "SELECT productID, productName, productType, productDescription, Price, Image FROM products;";
-					
 					$result = mysqli_query($conn, $query);
-					if (!$result) {
+					
+					if (!$result)
+					{
 						print "Error - the query could not be executed";
 						$error = mysqli_error();
 						print "<p>" . $error . "</p>";
 						exit;
-					}else
+					}
+					else
 					{
 						print "<div class=\"results_div\">";
 						while ($line = mysqli_fetch_array($result))
 						{
 							print "<div class=\"product_div\">";
 							print "<p class=\"searchResults\">Product Name: " . $line['productName'] . "<br />" . "Type: " . $line['productType'] . "<br />" . "Description: " . $line['productDescription'] . "<br />" . "Price: " . $line['Price'] . "</p>";
-							
 							$id = $line['productID'];
+							$title = $line['productName'];
 							$price = $line['Price'];
 				?>
 							<div id="buy_form">
@@ -105,7 +107,7 @@
 									<input type="hidden" name="button_subtype" value="services">
 									<input type="hidden" name="no_note" value="0">
 									<input type="hidden" name="currency_code" value="AUD">
-									<input type="hidden" name="item_name" value="<?php echo $id; ?>">
+									<input type="hidden" name="item_name" value="<?php echo $id . $title; ?>">
 									<input type="hidden" name="amount" value="<?php echo $price; ?>">
 									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
 									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
