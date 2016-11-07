@@ -90,8 +90,6 @@
 						}
 						else
 						{
-							if (mysqli_fetch_array($result))
-							{
 								print "<div class=\"results_div\">";
 								while ($line = mysqli_fetch_array($result))
 								{
@@ -126,7 +124,6 @@
 									print "<div class=\"img_div\"><img src=\"$img_link\" alt=\"resultImg\" style=\"width: 200px; height: 100px;\"></div>";	
 								}
 								print "</div>";
-							}
 						}
 						mysqli_free_result($result);
 						mysqli_close($conn);
